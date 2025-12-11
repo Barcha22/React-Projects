@@ -24,7 +24,7 @@
 
 ## Screenshots
 ### During api call
-![API Call](./src/screenshots/ss_1.png)
+![API Call](/chef-claude/src/screenshots/ss_1.png)
 
 ### After the api's response
-![API Response](./src/screenshots/ss_2.png)
+![API Response](/chef-claude/src/screenshots/ss_2.png)
