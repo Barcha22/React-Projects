@@ -21,3 +21,10 @@
 7. Inside .env file define a variable named "VITE_HF_ACCESS_TOKEN=PASTE_YOUR_TOKEN_HERE"
 8. open terminal in chef-claude and run npm install
 9. Lastly run npm run dev and head over to the localhost
+
+## Screenshots
+###During api call
+![API Call](/src/screenshots/ss_1.png)
+
+###After the api's response
+![API Response](/src/screenshots/ss_2.png)
