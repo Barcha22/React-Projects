@@ -1,16 +1,23 @@
-# React + Vite
+# AI powered recipe generator using React + Hugging Face api
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features 
+- Add at least 4 ingredients to generate recipe
+- AI-powered recipe suggestions via Hugging Face API
+- Clean and user-friendly interface
+- Real-time Ingredient management
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node-js
+- npm
+- Hugging Face account
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation and setup
+1. Clone the repository to your local machine
+2. Go to hugging face and make an account
+3. Click the avatar button on top left and head over to settings in Hugging face
+4. Select access tokens and click add new token
+5. give it a name and check the "Make calls to interference Providers" and leave everything as it is and create token and then copy it
+6. Now make a ".env" file in /chef-claude
+7. Inside .env file define a variable named "VITE_HF_ACCESS_TOKEN=PASTE_YOUR_TOKEN_HERE"
+8. open terminal in chef-claude and run npm install
+9. Lastly run npm run dev and head over to the localhost
