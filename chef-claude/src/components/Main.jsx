@@ -5,14 +5,19 @@ import {getRecipeFromMistral} from "/src/ai.js"
 
 export default function Main(){
 
-    let [ingredients,setinGredient]=React.useState([])    
+    const [ingredients,setinGredient]=React.useState(["chicken", "all the main spices", "corn", "heavy cream", "pasta"])    
 
     const [recipe, setRecipe] = React.useState("")
-    const [loading, setLoading] = React.useState(false)
+    const recipeSection = React.useRef(null)
+
+    React.useEffect(()=>{
+        if(recipe !== "" && recipeSection.current !==null){
+            recipeSection.current.scrollIntoView({behavior: "smooth"})
+        }
+    },[recipe])
 
     async function getRecipe() {
         console.log("Getting recipe for ingredients:", ingredients)
-        setLoading(true)
         try {
             const recipeMarkdown = await getRecipeFromMistral(ingredients)
             console.log("Received recipe:", recipeMarkdown)
@@ -20,10 +25,14 @@ export default function Main(){
         } catch (error) {
             console.error("Error getting recipe:", error)
         } finally {
-            setLoading(false)
+            null
         }
     }
-
+    
+    function addIngredients(formData){
+        const newIngredient = formData.get("ingredient")
+        setinGredient(prevIngredient=>[...prevIngredient,newIngredient])
+    }
     // function for event listner
     // function handleSubmit(event){
     //     event.preventDefault(); //prevents the form from refreshing
@@ -33,21 +42,28 @@ export default function Main(){
     //     event.target.reset()
     // }
 
-    function addIngredients(formData){
-        const newIngredient = formData.get("ingredient")
-        setinGredient(prevIngredient=>[...prevIngredient,newIngredient])
-    }
 //action is used instead of onsubmit for traditional HTML forms that submit to a server URL
     
 
     return (
         <main>
             <form className="ingredient-form" action={addIngredients}> 
-                <input placeholder="e.g, oregano" aria-label="Add ingredient" type="text" name="ingredient"/>
+                <input 
+                        placeholder="e.g, oregano" 
+                        aria-label="Add ingredient" 
+                        type="text" 
+                        name="ingredient"
+                />
+
                 <button>Add ingredient</button>
             </form>
-            {ingredients.length > 0 && <IngredientList ingredients={ingredients} getRecipe={getRecipe}/>}
-            {loading && <p>Loading recipe...</p>}
+
+            {ingredients.length > 0 && 
+                <IngredientList 
+                    ref={recipeSection}
+                    ingredients={ingredients} 
+                    getRecipe={getRecipe}
+                />}
             {recipe && <ClaudeRecipe recipe={recipe}/>}
         </main>
     )
