@@ -22,8 +22,5 @@
 9. Lastly run npm run dev and head over to the localhost
 
 ## Screenshots
-### During api call
 ![API Call](/chef-claude/src/screenshots/ss_1.png)
-
-### After the api's response
 ![API Response](/chef-claude/src/screenshots/ss_2.png)
