@@ -7,7 +7,6 @@
 - Real-time Ingredient management
 
 ## Prerequisites
-- Node-js
 - npm
 - Hugging Face account
 
